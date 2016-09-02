@@ -1,21 +1,6 @@
 // MODULE
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 
-// CONTROLLERS
-weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService){
-
-    $scope.city = cityService.city; 
-
-    // have angular watch if the $scope changes and update the service's city value if it does
-    $scope.$watch('city', function() {
-        cityService.city = $scope.city;
-    });
-
-
-
-}]);
-
-
 weatherApp.controller('forecastController', ['$scope', 'cityService', '$resource', '$routeParams', function($scope, cityService, $resource, $routeParams){
 
     $scope.city = cityService.city; 
